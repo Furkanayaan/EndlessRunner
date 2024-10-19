@@ -9,6 +9,8 @@ TagManager:
   - RightGround
   - LeftGround
   - LastPoint
+  - Obstacle
+  - Gold
   layers:
   - Default
   - TransparentFX
