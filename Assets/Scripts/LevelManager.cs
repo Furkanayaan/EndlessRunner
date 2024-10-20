@@ -10,7 +10,6 @@ public class LevelManager : MonoBehaviour {
     public Transform activeParent;
     public Transform deactiveParent;
     public int initialPoolSize = 3;
-    private Transform lastSpawnedPlatform;
     public bool bFirstSpawn = true;
     
 
@@ -44,7 +43,7 @@ public class LevelManager : MonoBehaviour {
         if (platform.tag == "ForwardGround") angle = 0;
         else if (platform.tag == "RightGround") angle = 90;
         else if (platform.tag == "LeftGround") angle = -90;
-        //Spawning based on the pivot point.
+        //Spawning platform based on the pivot point.
         Vector3 spawnPosition = activeParent.GetChild(activeParent.childCount - 2).GetChild(1).position;
         //Determining the platform's rotation based on its direction.
         float determineRotation = activeParent.GetChild(activeParent.childCount - 2).rotation.eulerAngles.y;
@@ -64,7 +63,6 @@ public class LevelManager : MonoBehaviour {
         
         platform.transform.position = spawnPosition;
         platform.transform.rotation = Quaternion.Euler(rot);
-        lastSpawnedPlatform = platform;
     }
     //Deactivating the active platform
     public void RemoveOldPlatform() {
